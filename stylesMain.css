@@ -35,17 +35,28 @@ body {
   
   .content-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; /* Выравниваем по верхнему краю */
-    justify-content: center; /* Центрируем содержимое */
+    align-items: flex-start; /* Выровнять по верхнему краю */
+    justify-content: space-between; /* Расположить блоки слева и справа */
+    gap: 20px; /* Добавить расстояние между текстом и изображением */
   }
   
-  .text-block, .image-block {
-    flex: none;
-    width: 45%; /* Устанавливаем фиксированную ширину */
-    margin: 20px;
+  .text-block {
+    flex: 1; /* Занимает оставшееся пространство */
+    padding: 20px;
   }
   
+  .image-block {
+    flex: 0 0 300px; /* Фиксированная ширина для изображения */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-block img {
+    max-width: 100%; /* Увеличение изображения до размеров блока */
+    height: auto;
+    border-radius: 10px;
+  }
   @media (max-width: 768px) {
     .content-wrapper {
       flex-direction: column;
