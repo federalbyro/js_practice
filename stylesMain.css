@@ -8,7 +8,7 @@ body {
     background: linear-gradient(-45deg, #2c003e, #000000, #2c003e, #000000);
     background-size: 400% 400%;
     animation: gradientBackground 15s ease infinite;
-    color: linear-gradient(to right, #ece2f1, #ebebf0);
+    color: #ffffff; /* Устанавливаем цвет текста в белый */
   }
   
   @keyframes gradientBackground {
@@ -36,13 +36,14 @@ body {
   .content-wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: center; /* Выравниваем по вертикали */
+    align-items: center;
+    justify-content: center; /* Центрируем содержимое */
   }
   
-  .text-block {
-    flex: 1;
-    min-width: 300px;
-    padding: 20px; /* Увеличиваем отступы для более равномерного заполнения */
+  .text-block, .image-block {
+    flex: none; /* Отключаем растяжение блоков */
+    width: 45%; /* Устанавливаем фиксированную ширину */
+    margin: 20px; /* Добавляем отступы вокруг блоков */
   }
   
   .image-block img {
