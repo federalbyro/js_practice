@@ -39,22 +39,38 @@ body {
     align-items: center; /* Выравниваем по вертикали */
   }
   
-  .text-block,
-  .image-block {
+  .text-block {
     flex: 1;
     min-width: 300px;
-    padding: 10px; /* Уменьшаем отступы */
-  }
-  
-  .image-block {
-    display: flex;
-    justify-content: center;
+    padding: 20px; /* Увеличиваем отступы для более равномерного заполнения */
   }
   
   .image-block img {
     max-width: 100%;
+    width: 500px; /* Устанавливаем фиксированную ширину */
     height: auto;
     border-radius: 10px;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* Добавляем пространство между элементами */
+  }
+  
+  .text-block p {
+    max-width: none; /* Убираем ограничение по ширине */
+  }
+  
+  .text-block {
+    display: flex;
+    flex-direction: column; /* Размещаем заголовок и текст по вертикали */
+  }
+  
+  .text-block h1 {
+    color: #ffffff; /* Делаем заголовок белым */
+    margin-bottom: 10px; /* Добавляем отступ после заголовка */
   }
   
   /* Обратный порядок для второго раздела */
