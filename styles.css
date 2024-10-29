@@ -1,0 +1,231 @@
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #2c003e, #000000, #2c003e, #000000);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+    color: #ffffff;
+  }
+  
+  @keyframes gradientBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+/* Заголовок */
+header {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  header h1 {
+    font-size: 60px;
+    margin: 0;
+    font-family: 'Pacifico', cursive; /* Используем новый шрифт */
+    background: linear-gradient(to right, #9868b4, #ebebf0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .cell:focus {
+    border-color: #ff6ec4;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 110, 196, 0.5);
+  }
+  
+  /* Стили для разделов */
+  .content-section {
+    width: 95%;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Выравниваем по вертикали */
+  }
+  
+  .text-block, .image-block {
+    flex: 1;
+    min-width: 300px;
+    padding: 10px; /* Уменьшаем отступы */
+  }
+  
+  .text-block {
+    display: flex;
+    justify-content: center; /* Выравниваем по горизонтали */
+  }
+  
+  .text-block p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 500px; /* Ограничиваем ширину текста для лучшей читабельности */
+  }
+  
+  .image-block {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-block img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Обратный порядок для второго раздела */
+  .content-section.reverse .content-wrapper {
+    display:flex;
+    flex-direction: row-reverse;
+  }
+  
+  /* Стили для интерактивного раздела */
+  .interactive-section {
+    width: 95%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .interactive-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cells-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .cell {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+  }
+  
+  .cell::-webkit-inner-spin-button,
+  .cell::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .cell[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  .buttons-container button {
+    padding: 20px 40px; /* Увеличиваем размер кнопок */
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff; /* Устанавливаем белый цвет шрифта */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .buttons-container button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: rotate(0deg) translate(-50%, -50%);
+    }
+    100% {
+      transform: rotate(360deg) translate(-50%, -50%);
+    }
+  }
+  
+  /* Стили для конкретных кнопок */
+  #generate-button {
+    background: linear-gradient(45deg, #ffd700, #ffa500, #ffd700, #ffa500);
+    background-size: 400% 400%;
+    animation: gradientButton 10s ease infinite;
+  }
+  
+  #run-button {
+    background: linear-gradient(45deg, #006400, #008000, #006400, #008000);
+    background-size: 400% 400%;
+    animation: gradientButton 10s ease infinite;
+  }
+
+  #clear-button {
+    background: linear-gradient(45deg, #ff0000, #8b0000, #ff0000, #8b0000);
+    background-size: 400% 400%;
+    animation: gradientButton 10s ease infinite;
+  }
+  
+  @keyframes gradientButton {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
+  }
+  
+
+  /* Заголовок в интерактивном разделе */
+.interactive-section h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  /* Убираем рамку вокруг ячеек */
+  .cells-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    /* Удаляем фон и рамку */
+    background: none;
+    border: none;
+  }
+  
