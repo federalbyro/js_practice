@@ -36,33 +36,24 @@ body {
   .content-wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start; /* Выравниваем по верхнему краю */
     justify-content: center; /* Центрируем содержимое */
   }
   
   .text-block, .image-block {
-    flex: none; /* Отключаем растяжение блоков */
+    flex: none;
     width: 45%; /* Устанавливаем фиксированную ширину */
-    margin: 20px; /* Добавляем отступы вокруг блоков */
+    margin: 20px;
   }
   
-  .image-block img {
-    max-width: 100%;
-    width: 500px; /* Устанавливаем фиксированную ширину */
-    height: auto;
-    border-radius: 10px;
-  }
-  .content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center; /* Центрируем содержимое */
-  }
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
   
-  .text-block, .image-block {
-    flex: none; /* Отключаем растяжение блоков */
-    width: 45%; /* Устанавливаем фиксированную ширину */
-    margin: 20px; /* Добавляем отступы вокруг блоков */
+    .text-block, .image-block {
+      width: 90%;
+    }
   }
   
   @media (max-width: 768px) {
