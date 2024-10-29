@@ -5,10 +5,10 @@ header {
   }
   
   header h1 {
-    font-size: 60px;
+    font-size: 48px;
     margin: 0;
     font-family: 'Pacifico', cursive; /* Используем новый шрифт */
-    background: linear-gradient(to right, #db9eff, #ebebf0);
+    background: linear-gradient(to right, #e7e1ec, #d366ca);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -35,6 +35,7 @@ header {
   
   .text-block p {
     max-width: none;
+    font-size: 12pt;
     text-align: left;
   }
   

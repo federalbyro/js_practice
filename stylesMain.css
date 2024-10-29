@@ -5,125 +5,113 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(-45deg, #2c003e, #000000, #2c003e, #000000);
+    background: linear-gradient(-45deg, #130413, #000000, #130122, #030122);
     background-size: 400% 400%;
     animation: gradientBackground 15s ease infinite;
     color: #ffffff; /* Устанавливаем цвет текста в белый */
-  }
-  
-  @keyframes gradientBackground {
+}
+
+@keyframes gradientBackground {
     0% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
     50% {
-      background-position: 100% 50%;
+        background-position: 100% 50%;
     }
     100% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
-  }
-  
-  /* Стили для разделов */
-  .content-section {
+}
+
+
+/* Стили для разделов */
+.content-section {
     width: 95%;
     margin: 50px auto;
     background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffffff; /* Рамка вокруг раздела */
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-  }
-  
-  .content-wrapper {
-    display: flex;
-    align-items: flex-start; /* Выровнять по верхнему краю */
-    justify-content: space-between; /* Расположить блоки слева и справа */
-    gap: 20px; /* Добавить расстояние между текстом и изображением */
-  }
-  
-  .text-block {
-    flex: 1; /* Занимает оставшееся пространство */
     padding: 20px;
-  }
-  
-  .image-block {
-    flex: 0 0 300px; /* Фиксированная ширина для изображения */
+}
+
+.content-wrapper {
     display: flex;
+    flex-direction: row; /* Располагаем элементы в ряд */
+    flex-wrap: wrap;
+    align-items: center; /* Центрируем по вертикали */
     justify-content: center;
-    align-items: center;
-  }
-  
-  .image-block img {
-    max-width: 100%; /* Увеличение изображения до размеров блока */
+    min-height: 200px; /* Устанавливаем минимальную высоту для наглядности */
+}
+
+.text-block, .image-block {
+    flex: 1;
+    min-width: 300px; /* Минимальная ширина блоков */
+    margin: 20px;
+}
+
+.text-block {
+    order: 1; /* Текст слева */
+}
+
+.image-block {
+    order: 2; /* Изображение справа */
+    text-align: center;
+}
+
+.image-block img {
+    max-width: 100%;
     height: auto;
+    border: 2px solid #ffffff; /* Рамка вокруг изображения */
     border-radius: 10px;
-  }
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .content-wrapper {
-      flex-direction: column;
+        flex-direction: column; /* На маленьких экранах элементы в колонку */
     }
-  
+
     .text-block, .image-block {
-      width: 90%;
+        width: 100%;
+        margin: 10px 0;
+        order: unset; /* Сбрасываем порядок */
     }
-  }
-  
-  @media (max-width: 768px) {
-    .content-wrapper {
-      flex-direction: column;
-    }
-  
-    .text-block, .image-block {
-      width: 90%; /* На маленьких экранах блоки занимают почти всю ширину */
-    }
-  }
-  .text-block p {
-    max-width: none; /* Убираем ограничение по ширине */
-  }
-  
-  .text-block {
-    display: flex;
-    flex-direction: column; /* Размещаем заголовок и текст по вертикали */
-  }
-  
-  .text-block h1 {
-    color: #ffffff; /* Делаем заголовок белым */
-    margin-bottom: 10px; /* Добавляем отступ после заголовка */
-  }
-  
-  /* Обратный порядок для второго раздела */
-  .content-section.reverse .content-wrapper {
-    display: flex;
+}
+
+/* Обратный порядок для разделов с классом reverse */
+.content-section.reverse .content-wrapper {
     flex-direction: row-reverse;
-  }
-  
-  /* Стили для интерактивного раздела */
-  .interactive-section {
+}
+
+/* Стили для интерактивного раздела */
+.interactive-section {
     width: 95%;
     margin: 50px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffffff; /* Рамка вокруг раздела */
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  }
-  
-  .interactive-wrapper {
+}
+
+.interactive-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  /* Убираем фон и рамку вокруг ячеек */
-  .cells-container {
+}
+
+.cells-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
     background: none;
     border: none;
-  }
-  
-  /* Стили для ячеек */
-  .cell {
+}
+
+/* Стили для ячеек */
+.cell {
     width: 50px;
     height: 50px;
     margin: 10px;
@@ -134,29 +122,121 @@ body {
     border: 2px solid #ffffff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  
-  .cell::-webkit-inner-spin-button,
-  .cell::-webkit-outer-spin-button {
+}
+
+.cell::-webkit-inner-spin-button,
+.cell::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
-  
-  .cell[type='number'] {
+}
+
+.cell[type='number'] {
     -moz-appearance: textfield;
-  }
-  
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .content-wrapper {
-      flex-direction: column;
-    }
-  }
-  
-  /* Подсветка ячеек при фокусе */
-  .cell:focus {
+}
+
+/* Подсветка ячеек при фокусе */
+.cell:focus {
     border-color: #ff6ec4;
     outline: none;
     box-shadow: 0 0 10px rgba(255, 110, 196, 0.5);
+}
+
+/* Дополнительные стили для текста */
+.text-block h1 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.text-block p, .text-block ol {
+    color: #ffffff;
+    text-align: left;
+}
+
+.text-block ol {
+    margin-left: 20px;
+}
+.text-block li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Заголовок в интерактивном разделе */
+.interactive-section h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Центрирование изображения и добавление рамки */
+.image-block {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  /* Стили для image-block */
+.image-block {
+    display: flex;
+    flex-direction: column; /* Стековые изображения по умолчанию */
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Расстояние между изображениями */
+}
+
+/* Стили для figure */
+.image-block figure {
+    margin: 0;
+    text-align: center;
+}
+
+/* Стили для figcaption */
+.image-block figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Адаптация для больших экранов */
+@media (min-width: 768px) {
+    .image-block {
+        flex-direction: row; /* Располагаем изображения в ряд на больших экранах */
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .image-block figure {
+        flex: 1 1 45%; /* Каждое изображение занимает примерно половину контейнера */
+    }
+}
+
+
+
+
+#lines-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    z-index: 2; /* Линии над ячейками */
   }
   
+  .line {
+    position: absolute;
+    height: 2px;
+    background-color: black;
+    transform-origin: 0 0;
+  }
+  
+  .line-label {
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .cells-container {
+    position: relative;
+    z-index: 1; /* Ячейки под линиями */
+  }
