@@ -1,4 +1,4 @@
-/* Text Styles */
+
 
 /* Заголовок страницы */
 header {
@@ -30,10 +30,17 @@ header {
     justify-content: center; /* Выравниваем по горизонтали */
   }
   
-  .text-block p {
-    font-size: 18px;
+  .text-block ol {
+    margin-left: 20px;
+  }
+  
+  .text-block li {
+    margin-bottom: 10px;
     line-height: 1.6;
-    max-width: 500px; /* Ограничиваем ширину текста для лучшей читабельности */
-    color: #ffffff; /* Устанавливаем цвет текста */
+  }
+  
+  .text-block p {
+    max-width: none;
+    text-align: left;
   }
   

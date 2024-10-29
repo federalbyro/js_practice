@@ -51,14 +51,28 @@ body {
     height: auto;
     border-radius: 10px;
   }
-
   .content-wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between; /* Добавляем пространство между элементами */
+    justify-content: center; /* Центрируем содержимое */
   }
   
+  .text-block, .image-block {
+    flex: none; /* Отключаем растяжение блоков */
+    width: 45%; /* Устанавливаем фиксированную ширину */
+    margin: 20px; /* Добавляем отступы вокруг блоков */
+  }
+  
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
+  
+    .text-block, .image-block {
+      width: 90%; /* На маленьких экранах блоки занимают почти всю ширину */
+    }
+  }
   .text-block p {
     max-width: none; /* Убираем ограничение по ширине */
   }
