@@ -31,7 +31,7 @@ header {
     font-size: 60px;
     margin: 0;
     font-family: 'Pacifico', cursive; /* Используем новый шрифт */
-    background: linear-gradient(to right, #9868b4, #ebebf0);
+    background: linear-gradient(to right, #db9eff, #ebebf0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
