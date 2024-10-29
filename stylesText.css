@@ -1,0 +1,39 @@
+/* Text Styles */
+
+/* Заголовок страницы */
+header {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  header h1 {
+    font-size: 60px;
+    margin: 0;
+    font-family: 'Pacifico', cursive; /* Используем новый шрифт */
+    background: linear-gradient(to right, #db9eff, #ebebf0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Заголовок в интерактивном разделе */
+  .interactive-section h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  /* Текстовые блоки */
+  .text-block {
+    display: flex;
+    justify-content: center; /* Выравниваем по горизонтали */
+  }
+  
+  .text-block p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 500px; /* Ограничиваем ширину текста для лучшей читабельности */
+    color: #ffffff; /* Устанавливаем цвет текста */
+  }
+  

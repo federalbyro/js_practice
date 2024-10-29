@@ -1,0 +1,129 @@
+/* Main Styles */
+
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #2c003e, #000000, #2c003e, #000000);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+    color: linear-gradient(to right, #ece2f1, #ebebf0);
+  }
+  
+  @keyframes gradientBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Стили для разделов */
+  .content-section {
+    width: 95%;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Выравниваем по вертикали */
+  }
+  
+  .text-block,
+  .image-block {
+    flex: 1;
+    min-width: 300px;
+    padding: 10px; /* Уменьшаем отступы */
+  }
+  
+  .image-block {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-block img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Обратный порядок для второго раздела */
+  .content-section.reverse .content-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  /* Стили для интерактивного раздела */
+  .interactive-section {
+    width: 95%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .interactive-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Убираем фон и рамку вокруг ячеек */
+  .cells-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: none;
+    border: none;
+  }
+  
+  /* Стили для ячеек */
+  .cell {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cell::-webkit-inner-spin-button,
+  .cell::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .cell[type='number'] {
+    -moz-appearance: textfield;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
+  }
+  
+  /* Подсветка ячеек при фокусе */
+  .cell:focus {
+    border-color: #ff6ec4;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 110, 196, 0.5);
+  }
+  

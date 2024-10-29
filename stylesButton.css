@@ -1,0 +1,74 @@
+/* Button Styles */
+
+/* Общие стили для кнопок */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .buttons-container button {
+    padding: 20px 40px;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+  }
+  
+  .buttons-container button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: rotate(0deg) translate(-50%, -50%);
+    }
+    100% {
+      transform: rotate(360deg) translate(-50%, -50%);
+    }
+  }
+  
+  /* Стили для конкретных кнопок */
+  #generate-button {
+    background: linear-gradient(45deg, #ffd700, #ffa500, #ffd700, #ffa500);
+    background-size: 400% 400%;
+    animation: gradientButton 10s ease infinite;
+  }
+  
+  #run-button {
+    background: linear-gradient(45deg, #006400, #008000, #006400, #008000);
+    background-size: 400% 400%;
+    animation: gradientButton 10s ease infinite;
+  }
+  
+  #clear-button {
+    background: linear-gradient(45deg, #ff0000, #8b0000, #ff0000, #8b0000);
+    background-size: 400% 400%;
+    animation: gradientButton 10s ease infinite;
+  }
+  
+  @keyframes gradientButton {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
