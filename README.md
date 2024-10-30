@@ -8,11 +8,11 @@
 
 project-root/
 ├── index.html
+├── mergeSort.js
 ├── stylesMain.css
 ├── stylesButton.css
 ├── stylesText.css
 ├── script.js
-├── workerMergeSort.js
 └── README.md
 
 ### Файлы
