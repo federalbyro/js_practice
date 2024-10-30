@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <title>Многопоточная сортировка слиянием</title>
-  <link rel="stylesheet" href="stylesMain.css">
-  <link rel="stylesheet" href="stylesButton.css">
-  <link rel="stylesheet" href="stylesText.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Многопоточная сортировка слиянием</title>
+    <link rel="stylesheet" href="stylesMain.css">
+    <link rel="stylesheet" href="stylesButton.css">
+    <link rel="stylesheet" href="stylesText.css">
+  </head>
 <body>
 
   <header>
@@ -19,6 +19,7 @@
   <!-- Первый раздел -->
   <section class="content-section">
     <div class="content-wrapper">
+      
         <h1>Теория</h1>
         <p>Сортировка слиянием (MergeSort) — это эффективный алгоритм сортировки, основанный на принципе "разделяй и властвуй".Сортировка слиянием (MergeSort) была разработана Джоном фон Нейманом в 1945 году. 
             Она появилась в ходе исследований эффективных методов обработки данных на ранних компьютерах. 
@@ -104,29 +105,51 @@
 
   <!-- 5 раздел -->
   <section class="interactive-section">
-    <h1>Практика</h1>
     <div class="interactive-wrapper">
-      <div class="cells-container">
-        <!-- Создаем 10 ячеек для ввода цифр -->
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-        <input type="text" maxlength="1" class="cell">
-      </div>
-      <!-- Кнопки -->
-      <div class="buttons-container">
-        <button id="generate-button">Сгенерировать</button>
-        <button id="run-button">Запустить</button>
-        <button id="clear-button">Очистить</button> <!-- Новая кнопка -->
-     </div>
+
+        <div class="description-block">
+            <h2>Как работает наша визуализация?</h2>
+            <ol>
+                <li><strong>Генерация случайных чисел:</strong> При нажатии кнопки "Сгенерировать" создаются случайные числа и заполняются ячейки ввода.</li>
+                <li><strong>Валидация ввода:</strong> Пользователь может вручную вводить числа в ячейки. Скрипт ограничивает ввод только цифрами от 0 до 19 и автоматически переходит к следующей ячейке после ввода двух цифр.</li>
+                <li><strong>Запуск сортировки:</strong> При нажатии кнопки "Запустить" начинается процесс сортировки. Если все ячейки заполнены, интерфейс блокируется для предотвращения изменений во время сортировки.</li>
+                <li><strong>Алгоритм MergeSort:</strong> Алгоритм рекурсивно разделяет массив на подмассивы до тех пор, пока каждый подмассив не содержит одного элемента. Затем происходит слияние подмассивов в отсортированном порядке.</li>
+                <li><strong>Визуализация:</strong> 
+                    <ul>
+                        <li><em>Разделение:</em> Подмассивы, которые будут разделены, подсвечиваются синим цветом.</li>
+                        <li><em>Сравнение:</em> Элементы, которые сравниваются, подсвечиваются желтым цветом.</li>
+                        <li><em>Выбор:</em> Выбранный элемент для слияния подсвечивается оранжевым цветом.</li>
+                        <li><em>Обновление:</em> Ячейки обновляются с новыми значениями и подсвечиваются зелёным цветом.</li>
+                    </ul>
+                </li>
+                <li><strong>Завершение:</strong> После завершения сортировки все ячейки подсвечиваются зелёным цветом, подтверждая окончательный отсортированный массив.</li>
+            </ol>
+        </div>
+
+        <!-- Область для отображения действий -->
+        <div id="action-display"></div>
+        
+        <div class="cells-container" id="cells-container">
+            <!-- Создаем 10 ячеек для ввода цифр -->
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+            <input type="text" maxlength="2" class="cell">
+        </div>
+        <!-- Кнопки -->
+        <div class="buttons-container">
+            <button id="generate-button">Сгенерировать</button>
+            <button id="run-button">Запустить</button>
+            <button id="clear-button">Очистить</button>
+        </div>
     </div>
-  </section>
+</section>
 
   <script src="script.js"></script>
 </body>

@@ -31,17 +31,8 @@
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     animation: shine 3s infinite;
   }
-  
-  @keyframes shine {
-    0% {
-      transform: rotate(0deg) translate(-50%, -50%);
-    }
-    100% {
-      transform: rotate(360deg) translate(-50%, -50%);
-    }
-  }
-  
-  /* Стили для конкретных кнопок */
+
+
   #generate-button {
     background: linear-gradient(45deg, #ffd700, #ffa500, #ffd700, #ffa500);
     background-size: 400% 400%;

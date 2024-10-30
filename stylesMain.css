@@ -8,7 +8,7 @@ body {
     background: linear-gradient(-45deg, #130413, #000000, #130122, #030122);
     background-size: 400% 400%;
     animation: gradientBackground 15s ease infinite;
-    color: #ffffff; /* Устанавливаем цвет текста в белый */
+    color: hwb(0 100% 0%);
 }
 
 @keyframes gradientBackground {
@@ -24,12 +24,11 @@ body {
 }
 
 
-/* Стили для разделов */
 .content-section {
     width: 95%;
     margin: 50px auto;
     background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #ffffff; /* Рамка вокруг раздела */
+    border: 2px solid #ffffff;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -38,69 +37,76 @@ body {
 
 .content-wrapper {
     display: flex;
-    flex-direction: row; /* Располагаем элементы в ряд */
+    flex-direction: row; 
     flex-wrap: wrap;
-    align-items: center; /* Центрируем по вертикали */
+    align-items: center; 
     justify-content: center;
-    min-height: 200px; /* Устанавливаем минимальную высоту для наглядности */
+    min-height: 250px; 
+    margin: 0 auto;
 }
 
 .text-block, .image-block {
     flex: 1;
-    min-width: 300px; /* Минимальная ширина блоков */
+    min-width: 300px; 
     margin: 20px;
+    
 }
 
 .text-block {
-    order: 1; /* Текст слева */
+    order: 1; 
 }
 
 .image-block {
-    order: 2; /* Изображение справа */
+    order: 2; 
     text-align: center;
+    min-width: 600px;
 }
 
+
 .image-block img {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #ffffff; /* Рамка вокруг изображения */
-    border-radius: 10px;
+    width: 105%; 
+    height: auto; 
+    max-width: 500px; 
+    border: 2px solid #444;
+    border-radius: 5px;
 }
 
 @media (max-width: 768px) {
     .content-wrapper {
-        flex-direction: column; /* На маленьких экранах элементы в колонку */
+        flex-direction: column;
     }
 
     .text-block, .image-block {
         width: 100%;
         margin: 10px 0;
-        order: unset; /* Сбрасываем порядок */
+        order: unset; 
     }
 }
 
-/* Обратный порядок для разделов с классом reverse */
 .content-section.reverse .content-wrapper {
     flex-direction: row-reverse;
 }
 
-/* Стили для интерактивного раздела */
+
 .interactive-section {
     width: 95%;
     margin: 50px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #ffffff; /* Рамка вокруг раздела */
+    border: 2px solid #ffffff;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Настройка контейнера ячеек */
 .interactive-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
+/* Стили для ячеек */
 .cells-container {
     display: flex;
     flex-wrap: wrap;
@@ -108,20 +114,22 @@ body {
     margin-bottom: 20px;
     background: none;
     border: none;
+    position: relative;
+    margin-top: 70px; /* Подвинуть ячейки ниже для размещения области действий выше */
 }
 
 /* Стили для ячеек */
 .cell {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin: 10px;
     text-align: center;
-    font-size: 24px;
-    background-color: #000000;
+    font-size: 28px;
+    background-color: #1e1e1e;
     color: #ffffff;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border: 2px solid #444444;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cell::-webkit-inner-spin-button,
@@ -134,11 +142,44 @@ body {
     -moz-appearance: textfield;
 }
 
+.cell.divide {
+    background-color: #1E90FF; /* DodgerBlue */
+    transform: scale(1.05);
+}
+
+/* Желтый цвет для сравниваемых элементов */
+.cell.compare {
+    background-color: #FFD700; /* Gold */
+    transform: scale(1.05);
+}
+
+/* Оранжевый цвет для выбранных элементов */
+.cell.merge {
+    background-color: #FFA500; /* Orange */
+    transform: scale(1.05);
+}
+
+/* Зеленый цвет для отсортированных ячеек */
+.cell.sorted {
+    background-color: #28a745; /* Green */
+    transform: scale(1.05);
+}
+
+/* Темно-оранжевый цвет для обновленных элементов */
+.cell.updated {
+    background-color: #ff8c00; /* DarkOrange */
+    transform: scale(1.05);
+}
+
+/* Базовые стили для ячеек */
+
+
 /* Подсветка ячеек при фокусе */
 .cell:focus {
     border-color: #ff6ec4;
     outline: none;
-    box-shadow: 0 0 10px rgba(255, 110, 196, 0.5);
+    box-shadow: 0 0 15px rgba(255, 110, 196, 0.7);
+    transform: scale(1.05);
 }
 
 /* Дополнительные стили для текста */
@@ -168,75 +209,53 @@ body {
     margin-bottom: 20px;
 }
 
-/* Центрирование изображения и добавление рамки */
 .image-block {
     text-align: center;
     display: flex;
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
 }
 
-
-  /* Стили для image-block */
-.image-block {
-    display: flex;
-    flex-direction: column; /* Стековые изображения по умолчанию */
-    align-items: center;
-    justify-content: center;
-    gap: 20px; /* Расстояние между изображениями */
-}
-
-/* Стили для figure */
 .image-block figure {
     margin: 0;
     text-align: center;
 }
 
-/* Стили для figcaption */
+
 .image-block figcaption {
     margin-top: 8px;
     font-size: 14px;
     color: #ffffff;
 }
 
-/* Адаптация для больших экранов */
+
 @media (min-width: 768px) {
     .image-block {
-        flex-direction: row; /* Располагаем изображения в ряд на больших экранах */
+        flex-direction: row; 
         flex-wrap: wrap;
         gap: 20px;
     }
     
     .image-block figure {
-        flex: 1 1 45%; /* Каждое изображение занимает примерно половину контейнера */
+        flex: 1 1 45%; 
     }
 }
 
+#action-display {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#action-display div {
+    margin-bottom: 5px;
+}
 
 
-
-#lines-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    z-index: 2; /* Линии над ячейками */
-  }
-  
-  .line {
-    position: absolute;
-    height: 2px;
-    background-color: black;
-    transform-origin: 0 0;
-  }
-  
-  .line-label {
-    position: absolute;
-    font-size: 12px;
-    font-weight: bold;
-    color: black;
-  }
-  
-  .cells-container {
-    position: relative;
-    z-index: 1; /* Ячейки под линиями */
-  }

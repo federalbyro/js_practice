@@ -1,28 +1,68 @@
-/* Заголовок страницы */
 header {
-    text-align: center;
-    padding: 50px 0;
-  }
-  
-  header h1 {
-    font-size: 48px;
-    margin: 0;
-    font-family: 'Pacifico', cursive; /* Используем новый шрифт */
-    background: linear-gradient(to right, #e7e1ec, #d366ca);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Заголовок в интерактивном разделе */
-  .interactive-section h2 {
-    text-align: center;
-    color: #ffffff;
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  /* Текстовые блоки */
+  text-align: center;
+  padding: 50px 0;
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 0;
+  font-family: 'Pacifico', cursive; /* Используем новый шрифт */
+  background: linear-gradient(to right, #e7e1ec, #d366ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Заголовок в интерактивном разделе */
+.interactive-section h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* Стили для абзацев */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+  color: hwb(0 100% 0%);
+}
+
+/* Стили для списков */
+ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Код внутри текста */
+code {
+  background-color: #333;
+  color: #f1c40f;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Подчёркивание и выделение текста */
+u {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: bold;
+}
+
   .text-block {
     text-align: left;
     padding: 20px;
