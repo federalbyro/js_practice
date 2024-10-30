@@ -6,11 +6,20 @@
 
 ## Структура Проекта
 
-project-root/ ├── index.html ├── stylesMain.css ├── stylesButton.css ├── stylesText.css └── script.js
+project-root/
+├── index.html
+├── stylesMain.css
+├── stylesButton.css
+├── stylesText.css
+├── script.js
+├── workerMergeSort.js
+└── README.md
 
 ### Файлы
 
 - **index.html**: Главный HTML-файл, содержащий структуру веб-страницы, разделы с теорией, изображениями и интерактивной визуализацией сортировки.
+
+- **mergeSort.js**: Пример многопоточной реализации алгоритма MergeSort на Node.js с использованием потоков (worker threads).
 
 - **stylesMain.css**: Основные стили для структуры сайта, включая оформление разделов, контейнеров и изображений.
 
