@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const generateButton = document.getElementById('generate-button');
   const runButton = document.getElementById('run-button');
   const clearButton = document.getElementById('clear-button');
-  const actionDisplay = document.getElementById('action-display');
+
 
   function generateRandomNumbers() {
     cells.forEach(cell => {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.value = '19';
       }
       if (cell.value.length === 2 && index < cells.length - 1) {
-        cells[index + 1].focus();
+        cells[index + 1].focus();//перенос на следующую ячейку при заполнении пред. ячейки
       }
     });
     cell.addEventListener('keydown', (e) => {
@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  generateButton.addEventListener('click', generateRandomNumbers);
+  generateButton.addEventListener('click', generateRandomNumbers);//кнопка генерации
 
-  clearButton.addEventListener('click', clearCells);
+  clearButton.addEventListener('click', clearCells);//очистка (работает только после запуска/генерации)
 
   function clearCells() {
     cells.forEach(cell => {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     await mergeSortVisual(values);
 
     toggleControls(false);
-  });
+  });//кнопка запуска
 
   function toggleControls(disabled) {
     cells.forEach(cell => {
@@ -98,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
     await Promise.all([
       mergeSort(arr, left, mid, cellElements, depth + 1),
       mergeSort(arr, mid, right, cellElements, depth + 1)
-    ]);
+    ]); //Вот тут как раз использую то, о чем говорил в 4-м разделе, они сортируются
 
-    await merge(arr, left, mid, right, cellElements, depth);
+    await merge(arr, left, mid, right, cellElements, depth); //сливаем
   }
 
   async function merge(arr, left, mid, right, cellElements, depth) {
