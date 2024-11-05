@@ -1,7 +1,7 @@
 const os = require('os');
 const { Worker, isMainThread, parentPort, workerData } = require('worker_threads');
 
-if (isMainThread) {
+if (isMainThread) {//если код исполняется в основном потоке
   const maxWorkers = os.cpus().length || 4; 
 
   function mergeSortIterative(arr) {
@@ -9,7 +9,7 @@ if (isMainThread) {
       for (let i = 1; i < arr.length; i *= 2) {
         let mergeTasks = [];
         for (let j = 0; j < arr.length - i; j += 2 * i) {
-          mergeTasks.push({ arr: arr.slice(), left: j, mid: j + i, right: Math.min(j + 2 * i, arr.length) });
+          mergeTasks.push({ arr: arr.slice(), left: j, mid: j + i, right: Math.min(j + 2 * i, arr.length) });//объекты с задачей
         }
         // Ограничиваем количество одновременно выполняемых задач
         await runMergeTasks(mergeTasks, arr);
@@ -17,31 +17,31 @@ if (isMainThread) {
       resolve(arr);
     });
   }
-
+//Воркер - ..позволяет распределять код для выполнения в отдельнхы ппотоках параллельно с главным (воркер - отедльный поток)
   function runMergeTasks(tasks, arr) {
     return new Promise((resolve) => {
-      let taskIndex = 0;
-      let completedTasks = 0;
-      const workers = [];
-      const numWorkers = Math.min(maxWorkers, tasks.length);
+      let taskIndex = 0; //текущий индекс задачи
+      let completedTasks = 0; //завершённые задачи
+      const workers = [];//массив ворекров
+      const numWorkers = Math.min(maxWorkers, tasks.length); //кол-во воркеров одновременно работающих
 
-      function runNextTask(worker) {
+      function runNextTask(worker) { //функция перехода к задаче
         if (taskIndex >= tasks.length) {
-          return;
+          return;//если все задачи отправлены в воркеры
         }
         const task = tasks[taskIndex++];
-        worker.postMessage(task);
-        worker.once('message', (e) => {
-          const { left, mergedSegment } = e;
+        worker.postMessage(task); //отправили таску в воркер -> мерджим и т.д.
+        worker.once('message', (e) => { //обрабатывает результат выполнения задачи
+          const { left, mergedSegment } = e; //извлекает информацию о левом индексе и отсортированном сегменте массива
           for (let k = 0; k < mergedSegment.length; k++) {
-            arr[left + k] = mergedSegment[k];
+            arr[left + k] = mergedSegment[k];//копируем отсортированный сегмент в общий массив arr
           }
           completedTasks++;
           if (completedTasks === tasks.length) {
             workers.forEach((w) => w.terminate());
-            resolve();
+            resolve();//заканчиваем при выпоолнении всех задач вызывом resolve() для завершения Promise - это специальный объект, который содержит своё состояние. 
           } else {
-            runNextTask(worker);
+            runNextTask(worker);//если не все переходим к некст задачке
           }
         });
 
@@ -53,7 +53,7 @@ if (isMainThread) {
       for (let i = 0; i < numWorkers; i++) {
         const worker = new Worker(__filename);
         workers.push(worker);
-        runNextTask(worker);
+        runNextTask(worker);// запускает runNextTask для каждого воркера, отправляя ему первую задачу из массива задач.
       }
     });
   }
@@ -65,9 +65,9 @@ if (isMainThread) {
 
   
 } else {
-  const { parentPort } = require('worker_threads');
+  const { parentPort } = require('worker_threads');  // подключил `parentPort` из `worker_threads` для обмена сообщениями с главным потоком
 
-  parentPort.on('message', (task) => {
+  parentPort.on('message', (task) => {// прослушивание сообщений от главного потока
     const { arr, left, mid, right } = task;
 
     function merge(arr, left, mid, right) {
@@ -96,8 +96,8 @@ if (isMainThread) {
       return result;
     }
 
-    const mergedSegment = merge(arr, left, mid, right);
-    parentPort.postMessage({ left, mergedSegment });
+    const mergedSegment = merge(arr, left, mid, right);//слияние подмассива, используя функцию `merge`
+    parentPort.postMessage({ left, mergedSegment });// обратно в главный поток
   });
 }
 
